@@ -26,5 +26,5 @@ Route::post('Inscription' ,[UtlisateurController::class ,'store']);
 Route::post('AjouterParking' ,[ParkingController::class ,'store']);
 Route::post('AjouterTarif' ,[TypeTarifController::class ,'store']);
 Route::post('AjouterStationnement' ,[StationnementController::class ,'store']);
-Route::post('filtrerparking' ,[ParkingController::class ,'filtrerparking']);
-
+Route::get('filtrerparking' ,[ParkingController::class ,'filtrerparking']);
+Route::post('stationnement' ,[StationnementController::class ,'index']);

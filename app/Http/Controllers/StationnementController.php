@@ -12,10 +12,19 @@ class StationnementController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+   
+        public function index(Request $request)
+        {
+            $startDate = $request->input('start_date');
+            $endDate = $request->input('end_date');
+            
+            // Récupérer les dépenses entre les deux dates
+            $expenses = Stationnement::whereBetween('dateStat', [$startDate, $endDate])->get();
+            
+            return response()->json([
+                'expenses' => $expenses  ],'stationnment succes');
+        }
+    
 
     /**
      * Show the form for creating a new resource.
